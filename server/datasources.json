@@ -25,7 +25,7 @@
           "repsonsePath": "$//*"
         },
         "functions": {
-          "userRepos": [
+          "get_UserRepos": [
             "user"
           ]
         }
@@ -40,7 +40,7 @@
           "repsonsePath": "$//*"
         },
         "functions": {
-          "users": [
+          "get_Users": [
             "user"
           ]
         }
