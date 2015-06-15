@@ -1,0 +1,34 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "githubApi": {
+    "name": "githubApi",
+    "connector": "rest",
+    "debug": false,
+    "options": {
+      "headers": {
+        "accepts": "application/json",
+        "content-type": "application/json"
+      }
+    },
+    "operations": [
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://api.github.com/users/{user}/repos",
+          "query": {
+            "user": "{user:string}"
+          },
+          "responsePath": "$."
+        },
+        "functions": {
+          "userRepos": [
+            "user"
+          ]
+        }
+      }
+    ]
+  }
+}
