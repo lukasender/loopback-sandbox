@@ -10,6 +10,7 @@
     "options": {
       "headers": {
         "accepts": "application/json",
+        "user-agent": "loopback-test-agent",
         "content-type": "application/json"
       }
     },
