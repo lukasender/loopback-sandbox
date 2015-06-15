@@ -35,5 +35,9 @@
   "UserRepos": {
     "dataSource": "githubApi",
     "public": false
+  },
+  "Users": {
+    "dataSource": "githubApi",
+    "public": false
   }
 }

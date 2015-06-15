@@ -22,10 +22,25 @@
           "query": {
             "user": "{user:string}"
           },
-          "responsePath": "$."
+          "repsonsePath": "$//*"
         },
         "functions": {
           "userRepos": [
+            "user"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://api.github.com/users/{user}",
+          "query": {
+            "user": "{user:string}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "users": [
             "user"
           ]
         }
