@@ -3,11 +3,11 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
-var listenFunction = function() {
+var listenFunction = function () {
     app.emit('started');
     console.log('Web server listening at: %s', app.get('url'));
     var UserRepos = loopback.getModel('UserRepos');
-    UserRepos.get('lumannnn', function(err, msg) {
+    UserRepos.get('lumannnn', function (err, msg) {
         if (err) {
             console.log('user repos:', err);
             return;
@@ -17,8 +17,9 @@ var listenFunction = function() {
         });
     });
 
+
     var Users = loopback.getModel('Users');
-    Users.get('lumannnn', function(err, val) {
+    Users.get('lumannnn', function (err, val) {
         if (err) {
             console.log('users:', err);
             return;
@@ -27,17 +28,17 @@ var listenFunction = function() {
     });
 };
 
-app.start = function() {
-  // start the web server
-  return app.listen(listenFunction);
+app.start = function () {
+    // start the web server
+    return app.listen(listenFunction);
 };
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
-  if (err) throw err;
+boot(app, __dirname, function (err) {
+    if (err) throw err;
 
-  // start the server if `$ node server.js`
-  if (require.main === module)
-    app.start();
+    // start the server if `$ node server.js`
+    if (require.main === module)
+        app.start();
 });

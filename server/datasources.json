@@ -1,50 +1,62 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "githubApi": {
-    "name": "githubApi",
-    "connector": "rest",
-    "debug": false,
-    "options": {
-      "headers": {
-        "accepts": "application/json",
-        "user-agent": "loopback-test-agent",
-        "content-type": "application/json"
-      }
+    "db": {
+        "name": "db",
+        "connector": "memory"
     },
-    "operations": [
-      {
-        "template": {
-          "method": "GET",
-          "url": "https://api.github.com/users/{user}/repos",
-          "query": {
-            "user": "{user:string}"
-          },
-          "repsonsePath": "$//*"
+    "gh-api-repos": {
+        "connector": "rest",
+        "debug": false,
+        "options": {
+            "headers": {
+                "accepts": "application/json",
+                "user-agent": "loopback-test-agent",
+                "content-type": "application/json"
+            }
         },
-        "functions": {
-          "get_UserRepos": [
-            "user"
-          ]
-        }
-      },
-      {
-        "template": {
-          "method": "GET",
-          "url": "https://api.github.com/users/{user}",
-          "query": {
-            "user": "{user:string}"
-          },
-          "repsonsePath": "$//*"
+        "operations": [
+            {
+                "template": {
+                    "method": "GET",
+                    "url": "https://api.github.com/users/{user}/repos",
+                    "query": {
+                        "user": "{ user: string }"
+                    },
+                    "repsonsePath": "$//*"
+                },
+                "functions": {
+                    "get": [
+                        "user"
+                    ]
+                }
+            }
+        ]
+    },
+    "gh-api-users": {
+        "connector": "rest",
+        "debug": false,
+        "options": {
+            "headers": {
+                "accepts": "application/json",
+                "user-agent": "loopback-test-agent",
+                "content-type": "application/json"
+            }
         },
-        "functions": {
-          "get_Users": [
-            "user"
-          ]
-        }
-      }
-    ]
-  }
+        "operations": [
+            {
+                "template": {
+                    "method": "GET",
+                    "url": "https://api.github.com/users/{user}",
+                    "query": {
+                        "user": "{ user: string }"
+                    },
+                    "repsonsePath": "$//*"
+                },
+                "functions": {
+                    "get": [
+                        "user"
+                    ]
+                }
+            }
+        ]
+    }
 }

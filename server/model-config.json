@@ -33,11 +33,11 @@
     "public": false
   },
   "UserRepos": {
-    "dataSource": "githubApi",
+    "dataSource": "gh-api-repos",
     "public": false
   },
   "Users": {
-    "dataSource": "githubApi",
+    "dataSource": "gh-api-users",
     "public": false
   }
 }
